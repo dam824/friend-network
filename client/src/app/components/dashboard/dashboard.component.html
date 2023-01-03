@@ -1,0 +1,137 @@
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+
+<body>
+  <div class="main-content">
+    <!-- Top navbar -->
+
+    <!-- Header -->
+    <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-image: url(	https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/9d680192174397.5f69e80543037.jpg); background-size: cover; background-position: center top;">
+      <!-- Mask -->
+      <span class="mask bg-gradient-default opacity-8"></span>
+      <!-- Header container -->
+      <div class="container-fluid d-flex align-items-center">
+        <div class="row">
+          <div class="col-lg-7 col-md-10">
+            <h1 class="display-2 text-white">Hello {{user.name}}</h1>
+            <p class="text-white mt-0 mb-5">Bienvenue sur votre page personnelle. Vous pouvez modifier vos informations et ajouter / supprimer des amis</p>
+            <a [routerLink]="'/profile'" class="custom-btn">Edit profil</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Page content -->
+    <div class="container-fluid mt--7">
+      <div class="row">
+        <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
+          <div class="card card-profile shadow">
+            <div class="row justify-content-center">
+              <div class="col-lg-3 order-lg-2">
+                <div class="card-profile-image">
+                  <a [routerLink]="'/profile'">
+                    <img src="	https://mir-s3-cdn-cf.behance.net/project_modules/fs/24ee7492174397.5f6e0ef95a6bd.jpg" class="rounded-circle">
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
+              <div class="d-flex justify-content-between">
+                <button (click)="logout()" class="btn btn-sm btn-info mr-4">Logout</button>
+                <a [routerLink]="'/friend'" class="btn btn-sm btn-default float-right">Amis</a>
+              </div>
+            </div>
+            <div class="card-body pt-0 pt-md-4">
+              <div class="row">
+                <div class="col">
+                  <div class="card-profile-stats d-flex justify-content-center mt-md-5">
+                    <div>
+                      <div class="text-center">
+                        <h3>
+                          {{user.name}}<span class="font-weight-light">, {{user.role}}</span>
+                        </h3>
+                        <div class="h5 font-weight-300">
+                          <i class="ni location_pin mr-2"></i>{{user.email}}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        test
+        <p>test</p>
+                <div *ngFor="let friend of friends">
+                  <p>Name: {{friend.name}}</p>
+                  <p>Email: {{friend.email}}</p>
+                  <p>Role: {{friend.role}}</p>
+
+                </div>
+                <p>fin test</p>
+        <div class="col-xl-8 order-xl-1">
+          <div class="card bg-secondary shadow">
+            <div class="card-header bg-white border-0">
+              <div class="row align-items-center">
+                <div class="col-8">
+                  <h3 class="mb-0">Mes informations</h3>
+                </div>
+                <div class="col-4 text-right">
+                  <a [routerLink]="'/profile'" class="btn btn-sm btn-primary">Settings</a>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <form>
+                <h6 class="heading-small text-muted mb-4">Vos informations</h6>
+                <div class="pl-lg-4">
+
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-username">Username</label>
+                        {{user.name}}
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-email">Email</label>
+                        {{user.email}}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-first-name">Role</label>
+                        {{user.role}}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <hr class="my-4">
+
+
+                <h3>Mes amis : </h3>
+                <app-friend-details (deleteFriend)="deleteFriend($event)" *ngFor="let friend of friends" [friend]="friend"></app-friend-details>
+
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="row align-items-center justify-content-xl-between">
+      <div class="col-xl-6 m-auto text-center">
+        <div class="copyright">
+          <p>Made by Dam</p>
+
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>

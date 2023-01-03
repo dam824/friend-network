@@ -1,0 +1,42 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="full">
+      <main class="box">
+  <h2 class="text-center text-primary">Modifier mon profil</h2>
+
+		<form (submit)="updateUser()" >
+		  <div class="inputBox">
+		    <label for="name">Nom</label>
+		    <input type="text" [(ngModel)]="user.name" name="name" class="form-control" id="name" placeholder="{{user.name}}">
+		  </div>
+		  <div class="inputBox">
+		    <label for="email">Email</label>
+		    <input type="email" [(ngModel)]="user.email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="{{user.email}}">
+		  </div>
+      <div class="inputBox">
+
+            <label for="role">Role</label>
+          <input type="text" [(ngModel)]="user.role" name="role" class="form-control" id="role"  placeholder="{{user.role}}">
+
+		  </div>
+      <button class="btn d-block mx-auto" type="submit" >Submit</button>
+      <button [routerLink]="['/dashboard']"class="btn d-block mx-auto" type="submit" >Retour</button>
+
+		</form>
+  </main>
+</div>
+

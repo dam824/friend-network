@@ -1,0 +1,76 @@
+	<!-- <h1>Ajouter un ami</h1> -->
+  <app-add-friend></app-add-friend>
+
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+<p>test list ami v: </p>
+
+<div *ngFor="let friend of friends">
+
+  {{friend.friend.email}}
+</div>
+<p>fin test</p>
+<body>
+  <h1 class="text-center">Liste de tout les panglins : </h1>
+  <div class="main-content">
+    <div  *ngFor="let user of users" class="container mt-7">
+      <!-- Table -->
+      <div class="row">
+        <div class="col-xl-8 m-auto order-xl-2 mb-5 mb-xl-0">
+          <div class="card card-profile shadow">
+            <div class="row justify-content-center">
+              <div class="col-lg-3 order-lg-2">
+                <div class="card-profile-image">
+                  <a href="#">
+                    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/622c7c92174397.5f69ea27eaa14.png" class="rounded-circle">
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
+              <div class="d-flex justify-content-between">
+                <button (click)="addFriend(user._id)"  class="btn btn-sm btn-default float-right">Ajouter</button>
+              </div>
+            </div>
+            <div class="card-body pt-0 pt-md-4">
+              <div class="row">
+                <div class="col">
+                  <div class="card-profile-stats d-flex justify-content-center mt-md-5">
+
+                  </div>
+                </div>
+              </div>
+              <div class="text-center">
+                <h3>
+                  {{user.name}}
+                </h3>
+                <div class="h5 font-weight-300">
+                  <i class="ni location_pin mr-2"></i>{{user.role}}
+                </div>
+                <div class="h5 font-weight-300">
+                  <i class="ni location_pin mr-2"></i>{{user.email}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+  </footer>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
