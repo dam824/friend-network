@@ -52,7 +52,7 @@ export class FriendComponent implements OnInit {
          this.flashMessage.show("Ami ajouté", {cssClass: 'alert-success', timeout: 5000});
 
         // Update the friends array with the new friend's information
-        this.friends.push(data.friend);
+        this.friends = [...this.friends,...data.friend ];
          this.users=this.users.filter((item) => item._id!= friend_id);
         } else {
           this.flashMessage.show(data.msg, {cssClass: 'alert-danger', timeout: 5000});
